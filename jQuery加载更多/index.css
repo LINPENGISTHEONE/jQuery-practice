@@ -1,0 +1,124 @@
+/*css reset*/
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd {
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/*common css*/
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    width: 675px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px 10px;
+}
+  
+.commodity li {
+	float: left;
+    width: 192px;
+	border: 1px solid #ccc;
+	margin: 5px;
+	padding: 10px;
+	text-align: center;
+	position: relative;
+}
+
+.cover {
+	position: absolute;
+  	top: 0;
+  	left: 0;
+  	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0, 0.3);
+	transition: all 0.3s;
+	opacity: 0;
+}
+
+/*添加hover类，使html里面有"hover"类*/
+.hover {
+    opacity: 1;
+}
+
+.cover .btn {
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+  	border: 1px solid #c81623;
+  	color: #c81623;
+  	padding: 10px 15px;
+  	border-radius: 3px;
+  	text-align: center;
+  	background: #fff;
+  	cursor: pointer;
+}
+
+.commodity .commodity-name {
+  	text-align: left;
+  	font-weight: normal;
+  	font-size: 12px;
+  	color: #666;
+}
+
+.commodity .commodity-price {
+	text-align: left;
+	font-size: 12px;
+  	color: #c81623;
+}
+
+.layout .add-more {
+    border: 1px solid #c81623;
+  	color: #c81623;
+  	padding: 10px 15px;
+    margin: 5px;
+  	border-radius: 3px;
+  	text-align: center;
+  	background: #fff;
+  	cursor: pointer;
+}
+
+.layout .add-more:hover {
+	background: #c81623;
+	color: #fff;
+}
+
+.go-top {
+	position: fixed;
+    right: 10px;
+	bottom: 10px;
+    border: 1px solid #c81623;
+  	color: #fff;
+  	padding: 10px 15px;
+  	border-radius: 3px;
+  	text-align: center;
+  	background: #c81623;
+  	cursor: pointer;
+    display: none;  
+}
+
+.go-top:hover {
+	background: #fff;
+	color: #c81623;
+}

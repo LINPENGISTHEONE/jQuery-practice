@@ -1,0 +1,81 @@
+/*css reset*/
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd {
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/*common css*/
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+a {
+	color: #333;
+}
+
+.nav-aside {
+	background: #696e78;
+	width: 200px;
+}
+
+.nav-aside .category {
+	position: relative;
+}
+
+.nav-aside .category:last-of-type .cate-title {
+	border: none;
+}
+
+.nav-aside .cate-title {
+	display: block;
+	color: #fff;
+	font-size: 14px;
+	margin: 0 10px;
+	padding: 10px;
+	border-bottom: 1px dotted #ccc;
+}
+
+.nav-aside .icon-goto {
+	color: #fff;
+	font-size: 14px;
+}
+
+.nav-aside .icon-goto {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.nav-aside .child-panel {
+	position: absolute;
+	top: 0;
+	left: 200px;
+	background: #fff;
+	border: 1px solid #ccc;
+	width: 210px;
+	font-size: 12px;
+	display: none;
+}
+
+.nav-aside .category.hover .child-panel {
+	display: block;
+}
+
+.child-panel li {
+	width: 55px;
+	float: left;
+	padding: 10px 20px;
+}

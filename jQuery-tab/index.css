@@ -1,0 +1,129 @@
+/*css reset*/
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd {
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/*common css*/
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+
+.tab {
+    width: 675px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px 10px;
+}
+
+.tab ul {
+    list-style: none;
+}
+  
+.tab-header {
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-header>li {
+    float: left;
+    padding: 5px 20px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    cursor: pointer;
+    color: #337ab7;
+} 
+
+/*添加active类，执行css*/
+.tab-header .active {
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+}
+
+.tab-content {
+    padding: 20px 0 20px 0;
+}
+
+.tab-content>li {
+    display: none;
+}
+   
+/*添加active类，使tab-content显示*/   
+.tab-content .active {
+    display: block;
+}
+
+.tab-content .commodity>li {
+	float: left;
+	border: 1px solid #ccc;
+	margin: 5px;
+	padding: 10px;
+	text-align: center;
+	position: relative;
+}
+
+.tab-content  .cover {
+	position: absolute;
+  	top: 0;
+  	left: 0;
+  	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0, 0.3);
+	transition: all 0.3s;
+	opacity: 0;
+}
+
+/*添加hover类，使html里面有"cover hover"类，注意：.cover.hover中间不加空格*/
+.cover.hover {
+    opacity: 1;
+}
+
+.tab-content .cover .btn {
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+  	border: 1px solid #c81623;
+  	color: #c81623;
+  	padding: 10px 15px;
+  	border-radius: 3px;
+  	text-align: center;
+  	background: #fff;
+  	cursor: pointer;
+}
+
+.tab-content .commodity .commodity-name {
+  	text-align: left;
+  	font-weight: normal;
+  	font-size: 12px;
+  	color: #666;
+}
+
+.tab-content .commodity .commodity-price {
+	text-align: left;
+	font-size: 12px;
+  	color: #c81623;
+}
+
