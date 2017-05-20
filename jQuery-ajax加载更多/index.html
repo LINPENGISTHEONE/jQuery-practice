@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-ajax load more</title>
+</head>
+<style>
+    ul,li {
+        margin: 0;
+        padding: 0;
+    }
+    #ct li {
+        list-style: none;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    #load-more {
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        cursor: pointer;
+    }
+    #load-more img {
+        width: 40px;
+        height: 40px;
+    }
+    .btn {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        width: 80px;
+        border: 1px solid #e27272;
+        border-radius: 3px;
+        text-align: center;
+        text-decoration: none;
+        color: #e27272;
+    }
+    .btn:hover {
+        background: green;
+        color: #fff;
+    }
+</style>
+<body>
+    <ul id="ct">
+        <li>新闻1</li>
+        <li>新闻2</li>
+    </ul>
+    <a href="#" class="btn" id="load-more">加载更多</a>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+
+<script>
+
+    var pageIndex = 1; //定义页数，每页有3条数据
+    var len = 3; //获取3条
+
+    $('#load-more').on('click',function(e){
+        e.preventDefault();
+
+        $.ajax({
+            url: '/loadMore',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                page: pageIndex, //发给后端，告诉后端如何发送数据
+                length: len
+            },
+            success: function(res){
+                if(res.status === 0){
+                    pageIndex++;
+                    appendHtml(res.data)
+                }else{
+                    alert('获取新闻出错！')
+                }
+            },
+            error: function(){
+                alert('网络未连接/系统异常')
+            }
+        })
+    })
+
+    function appendHtml(news){
+        var html = '';
+        for(var i=0;i<news.length;i++){
+            html += '<li>' + news[i] + '</li>' //遍历news数组，生成news[0],news[1],news[2]
+        }
+        
+        // 或者使用 $.each()
+
+        // $.each(news,function(i,news){
+        //     html += '<li>' + news + '</li>'
+        // })
+        $('#ct').append(html) //将html放入ct
+    }
+</script>
+</html>
