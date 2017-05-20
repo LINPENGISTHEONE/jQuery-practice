@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery简单的事件处理</title>
+    <style>
+    
+    .scroll{
+        width: 300px;
+        height: 200px;
+        background-color: lightseagreen;
+        position: fixed;
+        top: 0;
+        right: 10px;
+    }
+
+    .box{
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+    }
+      
+    </style>
+</head>
+<body>
+<p>1.当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</p>
+<button class="btn">点我此按钮变成红色再变蓝色</button>
+
+<p>2.当窗口滚动时，获取垂直滚动距离</p>
+<div class="scroll">
+    <p>窗口的垂直滚动距离为：<span class="scroll-distance"></span>px</p>
+</div>
+
+<p>3.当鼠标放置到$div上，把$div 背景色改为红色，移出鼠标背景色变为白色</p>
+<div class="box"></div>
+
+<p>4.当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</p>
+<input type="text" class="username">
+
+<p>5.当选择 select 后，获取用户选择的内容</p>
+<div class="select">
+		<select name="" class="hobby">
+			<option value="1">篮球</option>
+			<option value="2">电影</option>
+			<option value="3">音乐</option>
+			<option value="4">书法</option>
+		</select>
+		<p>用户选择的内容是:<span class="selected"></span></p>
+	</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+
+<script>
+
+    $('.btn').on('click',function(){
+        $(this).css('background-color','red')
+        setTimeout(function(){
+            $('.btn').css('background-color','blue')
+        },500)
+    })
+
+    $(window).on('scroll',function(){
+        $('.scroll-distance').text($(window).scrollTop())
+    })
+
+    $('.box').on('mouseenter',function(){
+        $('.box').css('background','red')
+    })
+
+    $('.box').on('mouseleave',function(){
+        $('.box').css('background','#fff')
+    })
+
+    $('.username').on('focus',function(){
+        $('.username').css('outlineColor','blue')
+    })
+
+    $('.username').on('keydown',function(){
+        $(this).val($(this).val().toUpperCase())
+    })
+
+    $('.username').on('blur',function(){
+        $('.username').css('outlineColor','none')
+    })
+
+     $('.hobby').on('change',function(){
+        $('.selected').text($('.hobby option:selected').text())
+    })
+
+</script>
+
+</body>
+</html>
