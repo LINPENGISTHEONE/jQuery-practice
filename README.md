@@ -6,4 +6,6 @@
 
 2.jQuery的tab组件：[预览地址](https://linpengistheone.github.io/jQuery-practice/jQuery-tab/index.html)
 
-3.jQuery加载更多（里面也有一个回到顶部的demo）：[预览地址](https://linpengistheone.github.io/jQuery-practice/jQuery%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/index.html)
+3.jQuery加载更多（里面有一个回到顶部的组件）：[预览地址](https://linpengistheone.github.io/jQuery-practice/jQuery%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/index.html)
+
+4.jQuery简单的事件处理：[预览地址](https://linpengistheone.github.io/jQuery-practice/jQuery%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86.html)
