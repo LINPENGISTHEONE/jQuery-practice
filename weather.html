@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weather</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: "Microsoft YaHei";
+        font-size: 14px;
+    }
+
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    ul,li {
+        list-style: none;
+    }
+
+    #header {
+        max-width: 600px;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        line-height: 1.5;
+        box-shadow: 0 0 4px 1px #aaa;
+    }
+
+    #header .city {
+        font-size: 30px;
+        font-weight: 500;
+        vertical-align: middle;
+    }
+
+    #header img {
+        vertical-align: middle;
+    }
+
+    #header .date-pm25 {
+        margin-top: 10px;
+        float: left;
+    }
+
+    #header .weather-temperature {
+        margin-top: 10px;
+        margin-left: 100px;
+        float: left;
+    }
+
+    #content {
+        max-width: 600px;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        line-height: 1.5;
+        box-shadow: 0 0 4px 1px #aaa;
+    }
+    
+    #content .title {
+        font-size: 16px;
+        font-weight: 500px;
+        color: #0f88eb;
+    }
+    
+    #footer {
+        max-width: 600px;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        line-height: 1.5;
+        box-shadow: 0 0 4px 1px #aaa;
+    }
+
+    .TheNextFewDays {
+        border: 1px solid #ccc;
+        float: left;
+        width: 190px;
+        text-align: center;
+        padding: 5px 0;
+        margin-left: 5px;
+    }
+
+    .TheNextFewDays img,
+    .TheNextFewDays .weather {
+        vertical-align: middle;
+    }
+    
+    .TheNextFewDays .weather {
+        margin-left: 5px;
+    }
+
+    </style>
+</head>
+<body>
+    <section id="header" class="clearfix">
+        <div>
+            <span class="city"></span>
+            <img src="" alt="">
+        </div>
+        <div class="date-pm25">
+            <p class="date"></p>
+            <p class="pm25"></p>
+        </div>
+        <div class="weather-temperature">
+            <span class="weather"></span>
+            <span class="temperature"></span>
+            <p class="wind"></p>
+        </div>
+    </section>
+
+    <section id="content">
+       
+    </section>
+
+    <section id="footer" class="clearfix">
+        
+    </section>
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        var data 
+        $.ajax({
+            url: 'https://jirenguapi.applinzi.com/weather.php',
+            type: 'get',
+            dataType: 'json',
+            success: function(res){
+                data = res
+                appendHeader(res)
+                appendContent(res)
+                console.log('-------------------------------------------')
+                appendFooter(res)
+            },
+            error: function(){
+                alert('请求失败！')
+            }
+        })
+
+        function appendHeader(res){
+            $('#header .city').text(data.results[0].currentCity)
+            $('#header img').attr('src',data.results[0].weather_data[0].dayPictureUrl)
+            $('#header .date').text(data.results[0].weather_data[0].date)
+            $('#header .pm25').text("实时空气质量(PM2.5):" + data.results[0].pm25)
+            $('#header .temperature').text(data.results[0].weather_data[0].temperature)
+            $('#header .weather').text(data.results[0].weather_data[0].weather)
+            $('#header .wind').text("风速:" + data.results[0].weather_data[0].wind)
+        }
+
+        function appendContent(res){
+            $.each(data.results[0].index,function(index,val){
+                console.log(index)
+                console.log(val)
+                var html = ''
+                html += '<p class="title">' + val.tipt + '</p>' + '<p>' + val.zs + '</p>' + '<p>' + val.des + '</p>'
+                $('#content').append(html)
+            })
+        }
+
+        function appendFooter(res){
+            $.each(data.results[0].weather_data,function(index,val){
+                console.log(index)
+                console.log(val)
+                var html = ''
+                if(index>0){
+                    html += '<div class="TheNextFewDays">'
+                    html += '<p>' + val.date + '<p>' 
+                    html += '<img src="' + val.dayPictureUrl + '" alt="">'
+                    html += '<span class="weather">' + val.weather + '</span>'
+                    html += '<p class="temperature">' + val.temperature + '</p>'
+                    html += '<p class="wind">' + '风速:' + val.wind + '</p>'
+                    html += '</div>'
+                    $('#footer').append(html)
+                }
+            })
+        }
+        
+    </script>
+</body>
+</html>
+
