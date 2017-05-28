@@ -62,7 +62,7 @@
     #content {
         max-width: 600px;
         margin: 10px auto;
-        padding: 10px;
+        padding: 11px;
         border: 1px solid #ccc;
         line-height: 1.5;
         box-shadow: 0 0 4px 1px #aaa;
@@ -83,13 +83,17 @@
         box-shadow: 0 0 4px 1px #aaa;
     }
 
-    .TheNextFewDays {
+    .TheNextFewDays:nth-child(2),
+    .TheNextFewDays:nth-child(3) {
+        margin-left: 12px;
+    } 
+
+    .TheNextFewDays  {
         border: 1px solid #ccc;
         float: left;
-        max-width: 190px;
+        min-width: 190px;
         text-align: center;
         padding: 5px 0;
-        margin-left: 5px;
     }
 
     .TheNextFewDays img,
