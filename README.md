@@ -19,3 +19,5 @@
 ![展示](http://upload-images.jianshu.io/upload_images/4866329-fbf07d10d685affe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 6.AJAX天气预报：[预览地址](https://linpengistheone.github.io/jQuery-practice/weather.html)
+
+7.图片懒加载：[预览地址](https://linpengistheone.github.io/jQuery-practice/lazyload.html)
